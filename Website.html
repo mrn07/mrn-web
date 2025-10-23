@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr N Science and Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Colors ===== */
+    :root {
+      --primary: #00bcd4;
+      --secondary: #ff4081;
+      --accent: #4caf50;
+    }
+
+    /* ===== Navbar ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary);
+    }
+
+    .cta-btn {
+      background: var(--secondary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent);
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero .buttons a {
+      display: inline-block;
+      background: #fff;
+      color: var(--secondary);
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    .hero .buttons a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ===== About ===== */
+    .about {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* ===== Services ===== */
+    .services {
+      background: #f9f9f9;
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .services h2 {
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+
+    /* ===== Portfolio ===== */
+    .portfolio {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .project:hover img {
+      transform: scale(1.05);
+    }
+
+    .project h4 {
+      margin-top: 10px;
+      color: var(--secondary);
+    }
+
+    /* ===== Contact ===== */
+    .contact {
+      background: var(--primary);
+      color: white;
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: white;
+      color: var(--primary);
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      background: var(--secondary);
+      color: #fff;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 30px 10%;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="logo">Mr N Science & Tech</div>
+    <nav>
+      <ul>
+        <li><a href="#"><button >
+            Home
+        </button></a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="cta-btn">Get a Quote</a>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h1>Innovating the Future, One Website at a Time.</h1>
+    <p>We design and develop vibrant, engaging, and high-performing digital experiences.</p>
+    <div class="buttons">
+      <a href="#portfolio">View Our Work</a>
+      <a href="#contact">Let’s Talk</a>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      At <strong>Mr N Science and Technology</strong>, we combine creativity and technology to build powerful web solutions that elevate your business.
+      From concept to launch, our team is dedicated to crafting websites that engage users and deliver measurable results.
+    </p>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Custom Web Development</h3>
+        <p>Beautifully coded, responsive websites tailored to your goals.</p>
+      </div>
+      <div class="card">
+        <h3>E-Commerce Solutions</h3>
+        <p>Seamless online stores with secure payment integrations.</p>
+      </div>
+      <div class="card">
+        <h3>Web Applications</h3>
+        <p>Dynamic, scalable web apps powered by modern frameworks.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Intuitive interfaces that delight users and improve engagement.</p>
+      </div>
+      <div class="card">
+        <h3>SEO & Marketing</h3>
+        <p>Optimization strategies that help your business get found online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Portfolio ===== -->
+  <section id="portfolio" class="portfolio">
+    <h2>Our Recent Projects</h2>
+    <div class="portfolio-grid">
+      <div class="project">
+        <img src="https://mrn07.github.io/mrn-web/" alt="Project 1" />
+        <h4>HomeVista – Real Estate Platform</h4>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project 2" />
+        <h4>LuxeCart – E-Commerce Website</h4>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project 3" />
+        <h4>Learnify – E-Learning Platform</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p>Let’s build something amazing together. Contact us for a free consultation!</p>
+    <a href="mailto: nmutimbanyoka07@gmail.com">Email Us</a>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    © 2025 Mr N Science and Technology. All Rights Reserved. | Designed with 💙 by <a href="#">Mr N Team</a>
+  </footer>
+</body>
+</html>
